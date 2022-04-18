@@ -1,0 +1,9 @@
+{% extends 'reviews/base.html' %}
+
+{% block title %}All Reviews{% endblock title %}
+{% block content  %}
+<h1>{{object.user_name}}</h1>                    
+{% comment %} object used for Detail view otherwise sinhglereview name as class name {% endcomment %}
+<h2>{{singelreview.rating}}</h2>
+<p>{{singelreview.text_area}}</p>
+{% endblock  %}
