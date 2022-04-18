@@ -4,6 +4,20 @@
 {% block content  %}
 <h1>{{object.user_name}}</h1>                    
 {% comment %} object used for Detail view otherwise sinhglereview name as class name {% endcomment %}
-<h2>{{singelreview.rating}}</h2>
-<p>{{singelreview.text_area}}</p>
+<h2>{{object.rating}}</h2>
+{% comment %} <h2>{{singelreview.rating}}</h2> {% endcomment %}
+<p>{{object.text_area}}</p>
+{% comment %} <p>{{singelreview.text_area}}</p> {% endcomment %}
+
+{% if userfav %}
+<p>this is favourite</p>
+
+{% else %}
+    <form action="/reviewlist/favourite" method="POST">
+    {% csrf_token %}
+    <input type="hidden" name="review_id" value="{{object.id}}">
+    <button>favourite</button>
+    </form>
+{% endif %}
+
 {% endblock  %}

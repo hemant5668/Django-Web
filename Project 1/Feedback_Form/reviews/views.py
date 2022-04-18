@@ -1,5 +1,4 @@
 
-from urllib import request
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.views import View
@@ -104,9 +103,19 @@ class Singlereview(DetailView):
     template_name="reviews/singlereview.html"
     model = Review
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        loaded_review=self.object
+        request=self.request
+        fav_id=request.session.get("fav")
+        context["userfav"] = fav_id==str(loaded_review.id)
+        return context
 
+class addfavourite(View):
+    def post(self, request):
+        review_id=request.POST["review_id"]
+        request.session["fav"]=review_id
+        return HttpResponseRedirect("/reviewlist/"+review_id)
 
-
-
-
+    
 
