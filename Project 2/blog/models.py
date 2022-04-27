@@ -1,3 +1,4 @@
+
 from django.utils.text import slugify
 from django.db import models
 from django.core.validators import MinLengthValidator
@@ -35,3 +36,11 @@ class Post(models.Model):
 
     def __str__(self):
         return f"{self.title,self.date,self.excerpt}"
+
+
+class Comment(models.Model):
+    username=models.CharField(max_length=100)
+    email=models.EmailField()
+    comment=models.TextField(max_length=120)
+    post=models.ForeignKey( Post,on_delete=models.CASCADE,related_name="comments")
+    

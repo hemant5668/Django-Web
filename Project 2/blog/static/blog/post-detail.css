@@ -61,3 +61,41 @@ main{
     background-color: white;
     justify-content: center;
 }
+
+#comment-form1{
+    background-color: rgb(207, 240, 240);
+    margin: 3rem auto;
+    width: 90%;
+    max-width: 20rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    border-radius: 12px;
+    padding: 1rem;
+}
+
+.form-control{
+    margin-bottom: 1rem;
+}
+
+.form-control label{
+    font-weight: bold;
+    margin: 1rem ;
+    padding-top: 1rem;
+}
+.form-control input, .form-control textarea{
+    border-radius: 4px;
+}
+
+#comment-form1 button{
+    font: inherit;
+    border-radius: 5px;
+    background-color: #390281;
+    color: aliceblue;
+    display: block;
+    width: 100%;
+}
+
+#comment-form1 button:hover {    
+    color: aliceblue;
+    background-color: black;
+}
+

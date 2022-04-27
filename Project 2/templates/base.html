@@ -14,7 +14,10 @@
     <header id="main-header">
         <a href="{% url 'starting-page' %}">Hem blog</a>
         <nav>
-            <a href=" {% url 'post-page' %}">All posts</a>
+
+            <a href=" {% url 'post-page' %}">All posts |</a>
+            <a href=" {% url 'read-later' %}">Save Posts</a>
+
         </nav>
     </header>
     {% block content %}
